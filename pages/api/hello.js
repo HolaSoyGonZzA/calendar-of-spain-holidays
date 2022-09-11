@@ -1,5 +1,6 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { chromium } from "playwright";
 
-export default function handler(req, res) {
-  res.status(200).json({ name: 'John Doe' })
+export default async function handler(req, res) {
+  const browser = await chromium.launch();
+  res.status(200).json({ name: "John Doe" });
 }

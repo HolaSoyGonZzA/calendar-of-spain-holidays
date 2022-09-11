@@ -1,0 +1,86 @@
+[
+  {
+    "text": "1 de enero Año Nuevo",
+    "date": "2021-12-31T23:00:00.000Z",
+    "month": 0,
+    "day": "1"
+  },
+  {
+    "text": "24 de septiembre Virgen de la Merced ",
+    "date": "2022-09-23T22:00:00.000Z",
+    "month": 8,
+    "day": "24"
+  },
+  {
+    "text": "6 de enero Reyes",
+    "date": "2022-01-05T23:00:00.000Z",
+    "month": 0,
+    "day": "6"
+  },
+  {
+    "text": "26 de septiembre",
+    "date": "2022-09-25T22:00:00.000Z",
+    "month": 8,
+    "day": "26"
+  },
+  {
+    "text": "15 de abril Viernes Santo",
+    "date": "2022-04-14T22:00:00.000Z",
+    "month": 3,
+    "day": "15"
+  },
+  {
+    "text": "12 de octubre Fiesta Nacional de España ",
+    "date": "2022-10-11T22:00:00.000Z",
+    "month": 9,
+    "day": "12"
+  },
+  {
+    "text": "18 de abril Lunes de Pascua Florida",
+    "date": "2022-04-17T22:00:00.000Z",
+    "month": 3,
+    "day": "18"
+  },
+  {
+    "text": "1 de noviembre Dia de todos los Santos",
+    "date": "2022-10-31T23:00:00.000Z",
+    "month": 10,
+    "day": "1"
+  },
+  {
+    "text": "6 de junio Lunes de Pasqua Granada",
+    "date": "2022-06-05T22:00:00.000Z",
+    "month": 5,
+    "day": "6"
+  },
+  {
+    "text": "6 de diciembre Dia de la Constitución",
+    "date": "2022-12-05T23:00:00.000Z",
+    "month": 11,
+    "day": "6"
+  },
+  {
+    "text": "24 de junio San Juan",
+    "date": "2022-06-23T22:00:00.000Z",
+    "month": 5,
+    "day": "24"
+  },
+  {
+    "text": "8 de diciembre La Inmaculada",
+    "date": "2022-12-07T23:00:00.000Z",
+    "month": 11,
+    "day": "8"
+  },
+  {
+    "text": "15 de agosto  Virgen de Agosto ",
+    "date": "2022-08-14T22:00:00.000Z",
+    "month": 7,
+    "day": "15"
+  },
+  {
+    "text": "26 de diciembre San Esteban",
+    "date": "2022-12-25T23:00:00.000Z",
+    "month": 11,
+    "day": "26"
+  }
+]
