@@ -13,7 +13,8 @@
     "next": "12.3.0",
     "playwright": "^1.25.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "replace-special-characters": "^1.2.6"
   },
   "devDependencies": {
     "eslint": "8.23.0",

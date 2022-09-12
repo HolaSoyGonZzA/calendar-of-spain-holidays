@@ -8,6 +8,7 @@ specifiers:
   playwright: ^1.25.2
   react: 18.2.0
   react-dom: 18.2.0
+  replace-special-characters: ^1.2.6
   sass: ^1.54.9
 
 dependencies:
@@ -16,6 +17,7 @@ dependencies:
   playwright: 1.25.2
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  replace-special-characters: 1.2.6
 
 devDependencies:
   eslint: 8.23.0
@@ -1631,6 +1633,10 @@ packages:
     resolution: {integrity: sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==}
     engines: {node: '>=8'}
     dev: true
+
+  /replace-special-characters/1.2.6:
+    resolution: {integrity: sha512-6Gyq6LSoAsBw4edGPUP1OthVu5GhqPuejy+rjA/hxIs6lhNCT4XnL7c22ZsUZqv+RsDIbBiYfO8bRoMD/H9WlQ==}
+    dev: false
 
   /resolve-from/4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}

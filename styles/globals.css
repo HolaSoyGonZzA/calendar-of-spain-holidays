@@ -26,3 +26,8 @@ a {
     background: black;
   }
 }
+
+select {
+  max-width: 30%;
+  margin: 1rem auto;
+}
