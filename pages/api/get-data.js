@@ -1,10 +1,9 @@
-import scrapper from "../../utils/scrapper";
+import path from "path";
+import fs from "fs-extra";
 
 export default async function handler(req, res) {
   const { region } = req.query;
-  const year = new Date().getFullYear();
-  const data = await scrapper(
-    `https://www.calendarioslaborales.com/calendario-laboral-${region}-${year}.htm`
-  );
+  const root = process.cwd();
+  const data = await fs.readJSON(path.join(root, "data", `${region}.json`));
   res.status(200).json(data);
 }
