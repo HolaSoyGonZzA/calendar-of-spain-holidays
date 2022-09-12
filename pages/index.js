@@ -1,40 +1,66 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 
 import data from "../data.json";
+import classNames from "classnames";
 
 const date = new Date();
 
-const currentMonthHolidays = data.filter((el) => el.month === date.getMonth());
+const currentMonthHolidays = data[date.getMonth()];
 const nextHolidays = data
-  .filter((el) => el.month > date.getMonth())
-  .slice(0, 3);
+  .slice(date.getMonth() + 1, date.getMonth() + 3)
+  .filter((el) => el.holidays.length > 0);
+
+const legend = {
+  N: "Días Festivos Nacionales",
+  R: "Días Festivos Regionales",
+  P: "Días Festivos Locales",
+};
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Calendar Of Spain Holidays</title>
-        <meta name="description" content="Calendar Of Spain Holidays" />
+        <title>Calendario de Vacaciones en España</title>
+        <meta name="description" content="Calendario de Vacaciones en España" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Calendar Of Spain Holidays</h1>
-        <h2>Holidays of this month</h2>
+        <h1 className={styles.title}>Calendario de Vacaciones en España</h1>
+        <h2>Festivos de {currentMonthHolidays.month}</h2>
         <div className={styles.grid}>
-          {currentMonthHolidays.map((el) => (
-            <div key={el.date} className={styles.card}>
-              {el.text}
+          {currentMonthHolidays.holidays.map((el) => (
+            <div
+              key={el.day}
+              className={classNames(styles.card, styles[el.type])}
+            >
+              <h2>{el.title}</h2>
+              <p>{el.day}</p>
             </div>
           ))}
         </div>
-        <h2>Next holidays</h2>
+        <h2>Próximos días festivos</h2>
         <div className={styles.grid}>
           {nextHolidays.map((el) => (
-            <div key={el.date} className={styles.card}>
-              {el.text}
+            <div key={el.month}>
+              <h3>{el.month}</h3>
+              {el.holidays.map((el) => (
+                <div key={el.day} className={classNames(styles[el.type])}>
+                  <h4>{el.title}</h4>
+                  <p>{el.day}</p>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.legend}>
+          {["N", "R", "P"].map((el) => (
+            <div key={el}>
+              <span className={classNames(styles.span, styles[el])}></span>
+              <span>{legend[el]}</span>
             </div>
           ))}
         </div>

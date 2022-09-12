@@ -1,53 +1,49 @@
 const fs = require("fs");
 const { chromium } = require("playwright");
 
-const getDateFromText = (text) => {
-  const monthNames = [
-    "enero",
-    "febrero",
-    "marzo",
-    "abril",
-    "mayo",
-    "junio",
-    "julio",
-    "agosto",
-    "septiembre",
-    "octubre",
-    "noviembre",
-    "diciembre",
-  ];
-  const day = text.split(/\s/)[0];
-  const month = monthNames.indexOf(text.split(/\s/)[2]);
-  const currentYear = new Date().getFullYear();
-  return { currentYear, month, day };
-};
-
 async function main() {
   const browser = await chromium.launch();
 
   const page = await browser.newPage();
 
   await page.goto(
-    "https://ajuntament.barcelona.cat/hisenda/es/informacion-general/calendario-de-festivos-dias-inhabiles"
+    "https://www.calendarioslaborales.com/calendario-laboral-barcelona-2022.htm"
   );
 
-  const content = await page.$$("table tbody td");
+  const monthTables = await page.$$("#wrapIntoMeses .mes");
 
   const result = await Promise.all(
-    content.map(async (el) => await el.innerText())
+    monthTables.map(async (el) => {
+      const month = (await el.getAttribute("id"))
+        .replace("wrap", "")
+        .toLowerCase();
+      const tds = await el.$$("td");
+
+      const list = await el.$("ul");
+
+      const holidays = await Promise.all(
+        tds.map(async (td) => {
+          const className = await td.getAttribute("class");
+          if (className) {
+            const day = await td.textContent();
+            const title = list
+              ? (await list.innerText())
+                  .split("\n")
+                  .filter((item) => item.startsWith(day))
+                  .map((item) => item.split(".")[1])
+                  .join("")
+              : "";
+            const type = className.slice(-1);
+            return { day, title, type };
+          }
+        })
+      );
+
+      return { month, holidays: holidays.filter(Boolean) };
+    })
   );
 
-  const json = result.slice(0, -3).map((el) => {
-    const { currentYear, month, day } = getDateFromText(el);
-    return {
-      text: el.split(/\s/).slice(0, -1).join(" "),
-      date: new Date(currentYear, month, day),
-      month,
-      day,
-    };
-  });
-
-  fs.writeFileSync("data.json", JSON.stringify(json));
+  fs.writeFileSync("data.json", JSON.stringify(result));
 
   await browser.close();
 }

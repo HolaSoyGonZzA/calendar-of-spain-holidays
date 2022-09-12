@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "classnames": "^2.3.1",
     "next": "12.3.0",
     "playwright": "^1.25.2",
     "react": "18.2.0",
@@ -16,6 +17,7 @@
   },
   "devDependencies": {
     "eslint": "8.23.0",
-    "eslint-config-next": "12.3.0"
+    "eslint-config-next": "12.3.0",
+    "sass": "^1.54.9"
   }
 }
